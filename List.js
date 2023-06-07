@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { LinearGradient } from "expo-linear-gradient";
 
 
 // import all the components we are going to use
@@ -31,7 +32,18 @@ const App = ({navigation}) => {
   const ItemView = ({ item }) => {
     return (
       // Flat List Item
-      <View>
+      <LinearGradient
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          colors={["#9c15c1", "#52dffb"]}
+          style={{
+            width: "100%",
+            flexDirection: "row",
+            marginTop: 20,
+            alignItems: 'center',
+            borderRadius: 15,
+          }}
+        >
         <Image source = {item.photo} style={styles.photoStyle}>
         </Image>
 
@@ -45,7 +57,7 @@ const App = ({navigation}) => {
         {item.title.toUpperCase()}
        
       </Text>
-      </View>
+      </LinearGradient>
     );
   };
 
@@ -90,10 +102,12 @@ const App = ({navigation}) => {
         }}
       />
       
-      <TouchableOpacity
+      {/* <TouchableOpacity
         activeOpacity={0.5}
         onPress={upButtonHandler}
         style={styles.upButtonStyle}>
+
+          
         <Image
           source={{
             uri:
@@ -113,7 +127,7 @@ const App = ({navigation}) => {
           }}
           style={styles.downButtonImageStyle}
         />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </SafeAreaView>
   );
 };
@@ -121,18 +135,20 @@ const App = ({navigation}) => {
 const styles = StyleSheet.create({
   itemStyle: {
     padding: 50,
-    fontSize: 20,
+    fontSize: 24,
     left: 50,
-    top:15,
+    color: 'white',
+    alignContent: 'center',
+    marginLeft: 50,
   },
   photoStyle: {
-    width: 30,
-    height: 30,
+    width: 50,
+    height: 100,
     padding: 30,
-    top:50,
+    borderRadius: 10,
     left: 10, 
     position: 'absolute',
-    
+    marginLeft: 20,
   },
   upButtonStyle: {
     position: 'absolute',
